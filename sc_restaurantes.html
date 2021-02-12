@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turismo - Restaurantes</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Personal CSS file for definition of flexbox classes for image sorting and styling -->
+  <link rel="stylesheet" href="css/img_flexboxer.css">
+
+  <!-- Personal CSS file for the webpage's footer -->
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Navigation bar's Brand (uppr left corner image of the webpage)-->
+    <div class="navbar-brand">
+      <img class="mx-auto rounded img-fluid" src="img/SanCrisLogo.jpg" alt="Logo">
+    </div>
+
+    <!-- Navigation bar's dropdown and it's redirectional elements-->
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Características generales y otros
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="sc_san_cristobal.html">San Cristóbal</a>
+        <a class="dropdown-item" href="sc_tour.html">Tour San Cristóbal</a>
+        <a class="dropdown-item" href="sc_vistas.html">vistas</a>
+        <a class="dropdown-item" href="index.html">Volver atras</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron (the webpage's introduction, with the gray background) -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>Restaurantes de San Cristóbal</h1>
+      <br />
+      <p>En esta página verá los restaurantes de este lugar y sus platos más habituales.</p>
+    </div>
+  </div>
+
+  <!-- Centeder title before table -->
+  <div class="container">
+    <br />
+    <p>En la siguiente tabla se encuentra la información de algunos de los mejores restaurantes que pueden
+      encontrarse en San Cristóbal - Las Palmas de Gran Canaria:</p>
+    <br />
+
+    <!-- Table with basic restaurant information -->
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre e imagen</th>
+          <th>Calificación de usuarios</th>
+          <th>Puesto Top</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <p>Restaurante Los Botes:</p>
+            <img class="mx-auto rounded img-fluid" src="img/Restaurant/Info_table/Los_Botes.jpg"
+              alt="Restaurante Los Botes">
+          </td>
+          <td>3,5 de 5 (216 votos)</td>
+          <td>231 de 1316</td>
+        </tr>
+        <tr>
+          <td>
+            <p>Punto Marino:</p>
+            <img class="mx-auto rounded img-fluid" src="img/Restaurant/Info_table/Punto_Marino.jpg"
+              alt="Restaurante Punto Marino">
+          </td>
+          <td>3,5 de 5 (31 votos)</td>
+          <td>681 de 1316</td>
+        </tr>
+        <tr>
+          <td>
+            <p>El Chacalote:</p>
+            <img class="mx-auto rounded img-fluid" src="img/Restaurant/Info_table/El_Chacalote.jpg"
+              alt="Restaurante El Chacalote">
+          </td>
+          <td>4 de 5 (31 votos)</td>
+          <td>299 de 1316</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Centered title before image gallery -->
+    <div>
+      <br />
+      <br />
+      <h6>Esta es una galeria de imágenes de algunos platos de los restuaurantes anteriores, presiona sobre
+        ellos para agrandar las imágenes:</h6>
+      <br>
+    </div>
+
+    <!--
+        Image elements for image gallery, using modals to zoom them in (defined functionality by Bootstrap 4 files).
+        All of them are responsible, acting as a grid system with the use of my flexbox personal class to be responsive
+        within the size of the window (this example acts exactly like a "col-md-3 col-6" grid system).
+      -->
+    <div class="flexboxer">
+      <div>
+
+        <!-- Button to Open the Modal and firts image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato1">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish1.PNG" alt="Plato 1 Los Botes">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with first image) -->
+        <div class="modal fade" id="ZoomPlato1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Los Botes</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with first image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish1.PNG"
+                  alt="Zoom Plato 1 Los Botes">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with first image zoomed in -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and second image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato2">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish2.PNG" alt="Plato 2 Los Botes">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with second image) -->
+        <div class="modal fade" id="ZoomPlato2">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Los Botes</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with second image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish2.PNG"
+                  alt="Zoom Plato 2 Los Botes">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with second image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and third image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato3">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish3.PNG" alt="Plato 3 Los botes">
+        </button>
+
+        <!-- The Modal (click-to-open funtionability with previous button tag with third image) -->
+        <div class="modal fade" id="ZoomPlato3">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Los Botes</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with third image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish3.PNG"
+                  alt="Zoom Plato 3 Los Botes">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with thid image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and fourth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato4">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish4.PNG" alt="Plato 4 Los Botes">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with fourth image) -->
+        <div class="modal fade" id="ZoomPlato4">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Los Botes</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with fourth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish4.PNG"
+                  alt="Zoom Plato 4 Los Botes">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with fourth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and fifth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato5">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish5.PNG" alt="Plato 1 Punto Marino">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with fifth image) -->
+        <div class="modal fade" id="ZoomPlato5">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Punto Marino</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with fifth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish5.PNG"
+                  alt="Zoom Plato 1 Punto Marino">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with fifth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and sixth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato6">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish6.PNG" alt="Plato 2 Punto Marino">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with sixth image) -->
+        <div class="modal fade" id="ZoomPlato6">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Punto Marino</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with sixth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish6.PNG"
+                  alt="Zoom Plato 2 Punto Marino">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with sixth image zoomed in-->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and seventh image from left to right-->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato7">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish7.PNG" alt="Plato 3 Punto Marino">
+        </button>
+
+        <!-- The Modal (click-to-open functionality with previous button tag with seventh image) -->
+        <div class="modal fade" id="ZoomPlato7">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Punto Marino</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with seventh image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish7.PNG"
+                  alt="Zoom Plato 3 Punto Marino">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with seventh image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and eighth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato8">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish8.PNG" alt="Plato 4 Punto Marino">
+        </button>
+
+        <!-- The Modal (click to open functionality of previous button tag with eighth image) -->
+        <div class="modal fade" id="ZoomPlato8">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante Punto Marino</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with eighth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish8.PNG"
+                  alt="Zoom Plato 4 Punto Marino">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with eighth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and nineth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato9">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish9.PNG" alt="Plato 1 El Chacalote">
+        </button>
+
+        <!-- The Modal (click-to-open functionality of previous button tag with nineth image) -->
+        <div class="modal fade" id="ZoomPlato9">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante El Chacalote</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with nineth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish9.PNG"
+                  alt="Zoom Plato 1 El Chacalote">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with nineth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and tenth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato10">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish10.PNG" alt="Plato 2 El Chacalote">
+        </button>
+
+        <!-- The Modal (click-to-open functionality of previous button tag with tenth image) -->
+        <div class="modal fade" id="ZoomPlato10">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante El Chacalote</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with tenth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish10.PNG"
+                  alt="Zoom Plato 2 El Chacalote">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with tenth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and eleventh image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato11">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish11.PNG" alt="Plato 3 El Chacalote">
+        </button>
+
+        <!-- The Modal (click-to-open functionality of previous button tag with eleventh image) -->
+        <div class="modal fade" id="ZoomPlato11">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title) -->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante El Chacalote</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with eleventh image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish11.PNG"
+                  alt="Zoom Plato 3 El Chacalote">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with eleventh image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <!-- Button to Open the Modal and twuelveth image from left to right -->
+        <button type="button" class="btn" data-toggle="modal" data-target="#ZoomPlato12">
+          <img class="fl-style" src="img/Restaurant/Dishes/Dish12.PNG" alt="Plato 4 El Chacalote">
+        </button>
+
+        <!-- The Modal (click-to-open functionality of previous button tag with twelveth image) -->
+        <div class="modal fade" id="ZoomPlato12">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header (image title)-->
+              <div class="modal-header">
+                <h4 class="modal-title">Plato perteneciente al menú del restaurante El Chacalote</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal body (with twelveth image but zoomed in) -->
+              <div class="modal-body">
+                <img class="mx-auto rounded img-fluid" src="img/Restaurant/Dishes/Zoom_Dish12.PNG"
+                  alt="Zoom Plato 4 El Chacalote">
+              </div>
+
+              <!-- Modal footer (minimize Modal window option with twelveth image zoomed in) -->
+              <div class="modal-footer">
+                <button type="button" class="container btn btn-danger" data-dismiss="modal">Minimizar imagen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <br />
+
+  <!-- The webpage's footer with important information -->
+  <div class="footerer">
+    <br />
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Vía de contacto:</h3>
+      <p>Para contactar con nosotros, por favor, envíe un correo a <a
+          href="https://accounts.google.com">briangarciagomez@alumno.ieselrincon.es</a></p>
+      <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Agradecimiento</h3>
+      <p>Proyecto hecho posible gracias a los centros de educación secundaria IES El Rincón y CIFP San Cristóbal y a su
+        proyecto colaborativo;
+      <p>
+        <a href="http://www3.gobiernodecanarias.org/medusa/edublog/ieselrincon/nuestro-centro">Página web del centro IES
+          El Rincón</a>
+        <br />
+        <a href="https://cifpsancristobal.org/">Página web del centro CIFP San Cristóbal</a>
+        <br />
+        <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerend">
+      <br />
+      <p><a href="sc_restaurantes.html">Documento legal sobre nuestras políticas de privacidad del usuario visitante de
+          esta página</a></p>
+      <br />
+    </div>
+  </div>
+
+</body>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Realidad virtual - San Cristóbal</title>
+
+  <!-- JavaScript file for Virtual Reality, defined and owned by "A-Frame" -->
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+  <!-- Personal JavaScript file "site-changer" for scene-change purposes, along with explained properties for this code -->
+  <script src="js/components/site-changer.js"></script>
+
+  <!-- Personal JavaScript file "audio_button" for turning on and off ambient music with "ambience-button" tag -->
+  <script src="js/components/toggle_buttons.js"></script>
+
+  <!-- Personal stylesheet CSS file to define the appareance of the button with the ambience music feature -->
+  <link rel="stylesheet" href="css/vr_buttons.css">
+</head>
+
+<body>
+  
+  <!-- HTML buttons that applies to all virtual reality scenes (it's out of the a-scene block, where the virtual scenes are) -->
+
+  <!-- This button appears on the upper left part of the screen and allows the user to turn on or off the ambience music -->
+  <div id="button-container-upper-left">
+    <button class="border-in">
+      <img id="ambience-image" src="img/Virtual_reality/sound_off.png" alt="audio icon" />
+    </button>
+  </div>
+
+  <!-- This button appears on the upper right part of the screen, allows the user to go back to the main webpage through an "exit" icon -->
+  <div id="button-container-upper-right">
+    <button id="special-link" type="button" class="border-in">
+      <img class="image-centering" src="img/Virtual_reality/go_back.jpg" alt="go back icon"/>
+    </button>
+  </div>
+
+  <!--
+    This "button" appears on the lower left part of the screen, tells the user how many times they have moved through different places and,
+    since this is about changing sites and I needed to select every time a place was selected, it's defined on site-changer.js
+  -->
+  <div id="button-container-lower-left">
+    <button id="Counting" type="button" class="border-in">0 times travelled</button>
+  </div>
+
+
+  <!-- Virtual reality "a-scene" tag from A-Frame, containing all content that's related to virtual reality -->
+  <a-scene>
+
+    <!-- all resources with own id for later use, containing scenes, icons and audios -->
+    <a-assets>
+      <img id="tower" src="img/Virtual_reality/1_Tiny_Tower.jpg" alt="Mini torre de Pedro" />
+      <img id="paseo" src="img/Virtual_reality/2_Walk.jpg" alt="Caminar por el lugar" />
+      <img id="calm" src="img/Virtual_reality/3_Calmness.jpg" alt="Area de calma y disfrute" />
+      <img id="fishing" src="img/Virtual_reality/4_Beach_side.jpg" alt="Areas de pesca & playa" />
+      <img id="beach-in" src="img/Virtual_reality/5_On_the_beach.jpg" alt="Puesta de sol en la playa">
+      <img id="heavenly" src="img/Virtual_reality/6_Looks_like_heaven.jpg" alt="El cielo oculto">
+      <!-- Due to interactice complications, the next image (icon) is upside down -->
+      <img id="run" src="img/Virtual_reality/running_boi.jpg" alt="icono caminar area de playa">
+      <img id="leave" src="img/Virtual_reality/go_back.jpg" alt="Icono de salida del cielo oculto">
+      <audio id="clicking" src="audio/136754__ultranova105__shard.wav"></audio>
+      <audio id="seas" src="audio/176617__craiggroshek__seawash-calm.ogg"></audio>
+      <audio id="Saints" src="audio/467441__robinhood76__07579-heaven-voices-intro.ogg"></audio>
+    </a-assets>
+
+    <!-- The camera's cursor pointer on the center (for VR and non-VR users to select options and elements) -->
+    <a-camera>
+      <a-cursor raycaster="objects: .clickable"></a-cursor>
+    </a-camera>
+
+    <!-- 
+    Four 3D rotating cubes (a-box) for each scene-changing menu option (a-plane), grouped into "a-entity" tags
+    (all defined by JavaScript file "A-Frame"), their "position" class is given to it's contained tags (on this
+    case, other a-entity group tags, with their own position inside the first a-entity tag)
+  -->
+    <a-entity position="-1.9 1.2 -5">
+
+      <!-- a-entity (parent) with rotating cube and scene of option 1, with the (grandparent) a-entity's position -->
+      <a-entity>
+        <a-box scale=".25 .25 .25" rotation="0 0 0" color="red"
+          animation__position="property: rotation; to: 360 360 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <a-plane color="black" position="1.9 0 0" width="3.35" height=".35" change-site="image: #tower; zone: .torreno"
+          sound="on: mouseenter; src: #clicking">
+          <a-text value="Area de la mini torre de Pedro" color="white" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+      <!--
+      a-entity (parent) with rotating cube and scene of option 2, with the (grandparent) a-entity's position, resting
+      0.4 it's "Y" axis' value to properly position it under the first a-entity's cube and option
+      -->
+      <a-entity position="0 -0.4 0">
+        <a-box scale=".25 .25 .25" rotation="0 0 0" color="red" visible="false"
+          animation__position="property: rotation; to: 360 360 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <a-plane color="black" position="1.9 0 0" width="3.35" height=".35" class="clickable"
+          change-site="image: #paseo; zone: .pasear" sound="on: mouseenter; src: #clicking">
+          <a-text value="Area habitual de San Cristobal" color="gray" align="center"></a-text>
+        </a-plane>
+
+        <a-circle opacity="0" position=".5 .9 4.65" rotation="0 80 180" scale=".4 .3 .3" radius=".60" color="white"
+          class="pasear clickable" visible="false" change-site="image: #heavenly; zone: .heaven"
+          sound="on: mouseenter; src: #Saints">
+        </a-circle>
+        <a-circle opacity="0" position="2 1.5 2" rotation="0 0 0" scale=".8 .6 .6" radius=".80" color="white"
+          class="heaven" visible="false" change-site="image: #paseo; zone: .pasear"
+          sound="on: mouseenter; src: #clicking">
+          <a-image src="#leave"></a-image>
+        </a-circle>
+      </a-entity>
+
+      <!--
+      a-entity (parent) with rotating cube and scene of option 3, with the (grandparent) a-entity's position, resting
+      0.8 it's "Y" axis' value to properly position it under the second a-entity's cube and option
+      -->
+      <a-entity position="0 -0.8 0">
+        <a-box scale=".25 .25 .25" rotation="0 0 0" color="red" visible="false"
+          animation__position="property: rotation; to: 360 360 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <a-plane color="black" position="1.9 0 0" width="3.35" height=".35" class="clickable"
+          change-site="image: #calm; zone: .neat" sound="on: mouseenter; src: #clicking">
+          <a-text value="Area de calma y tranquilidad" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+      <!--
+      a-entity (parent) with rotating cube and scene of option 4, with the (grandparent) a-entity's position, resting
+      1.2 it's "Y" axis' value to properly position it under the thirst a-entity's cube and option
+      -->
+      <a-entity position="0 -1.2 0">
+        <a-box scale=".25 .25 .25" rotation="0 0 0" color="red" visible="false"
+          animation__position="property: rotation; to: 360 360 0; dir: alternate; dur: 4000; loop: true">
+        </a-box>
+        <a-plane color="black" position="1.9 0 0" width="3.35" height=".35" class="fishing clickable"
+          change-site="image: #fishing; zone: .fishe" sound="on: mouseenter; src: #clicking">
+          <a-text value="Areas de playa y pescadores" color="gray" align="center"></a-text>
+        </a-plane>
+
+        <!--
+        100% transparent circles, both containing an image source icon to "tell" the user that they can go to their
+        positioned place, aplying a scene change that doesn't appear on the scene menu. All of this is possible for
+        my personal JavaScript file "site-changer", where I specify how it works, when they become visible (according
+        to their "zone" value) and when they contain the "clickable" class (and thus, when they can be interacted with)
+        -->
+        <a-circle opacity="0" position="4 1 8" rotation="0 230 180" scale=".8 .6 .6" radius=".80" color="white"
+          class="fishe" visible="false" change-site="image: #beach-in; zone: .beaching-in"
+          sound="on: mouseenter; src: #clicking">
+          <a-image src="#run"></a-image>
+        </a-circle>
+        <a-circle opacity="0" position="-9 3 6" rotation="180 240 0" scale=".8 .8 1" radius="1" color="white"
+          class="beaching-in" visible="false" change-site="image: #fishing; zone: .fishe"
+          sound="on: mouseenter; src: #clicking">
+          <a-image src="#run"></a-image>
+        </a-circle>
+      </a-entity>
+    </a-entity>
+
+    <!-- Currently 360 degree image on use, changes according to the user's actions thanks to site-changer.js -->
+    <a-sky id="actual-sky" src="#tower" sound="src: #seas; loop: true" data-sounding="false"></a-sky>
+
+  </a-scene>
+</body>

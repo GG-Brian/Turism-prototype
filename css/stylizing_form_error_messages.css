@@ -1,0 +1,55 @@
+#email-at-sign-issue, #email-spacing-not-approved, #email-length-not-approved, #no-email {
+    color: red;
+    display: none;
+}
+
+#name-delimiter-missing, #no-full-name {
+    color: red;
+    display: none;
+}
+
+#no-option-chosen {
+    color: red;
+    display: none;
+}
+
+#too-large-client-age, #spacing-client-age, #just-numbers-client-age, #no-client-age, #no-decimals-client-age, #no-baby-clients {
+    color: red;
+    display: none;
+}
+
+#no-file{
+    color: red;
+    display: none;
+}
+
+#no-check-selected {
+    color: red;
+    display: none;
+}
+
+#news-form-uncompleted{
+    color: red;
+    display: none;
+}
+
+/* Always invisible value for database data sending purposes */
+#resulting{
+    display: none;
+}
+
+#thead-news-form-table{
+    background-color: rgb(55, 55, 221);
+}
+
+.thead-colors {
+    color: rgb(216, 216, 216);
+}
+
+.softer-blue {
+    background-color: rgb(188, 211, 253);
+}
+
+.darker-blue {
+    background-color: rgb(136, 201, 255);
+}

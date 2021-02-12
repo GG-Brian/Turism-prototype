@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turismo y Realidad virtual</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Personal CSS file for the webpage's footer -->
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Navigation bar's Brand (uppr left corner image of the webpage)-->
+    <div class="navbar-brand">
+      <img class="mx-auto rounded img-fluid" src="img/SanCrisLogo.jpg" alt="Logo">
+    </div>
+
+    <!-- Navigation bar's dropdown and it's redirectional elements-->
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#dropdown-menu" id="navbardrop" data-toggle="dropdown">
+        Características de San Cristóbal
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="sc_restaurantes.html">Restaurantes</a>
+        <a class="dropdown-item" href="sc_san_cristobal.html">San Cristóbal</a>
+        <a class="dropdown-item" href="sc_vistas.html">Vistas</a>
+        <a class="dropdown-item" href="sc_tour.html">Tour San Cristóbal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron (the webpage's introduction, with the gray background) -->
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>Proyecto Turismo con realidad virtual</h1>
+      <br />
+      <p>Los centros educativos IES El rincón y CIFP San cristóbal están colaborando para crear,
+        con alumnado informático y de turismo respectivamente, una aplicación que permita a usuarios como usted
+        visitar lugares turísticos ¡Sin moverse de casa!</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+          <!-- Carousel indicators for it's slidehow elements-->
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+          <!-- The carouusel's slideshow images -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/index_main_page/Carousel/District1.jpg" alt="1º parte San cristóbal Las Palmas de Gran Canaria">
+            </div>
+            <div class="carousel-item">
+              <img src="img/index_main_page/Carousel/District2.jpg" alt="2º parte San cristóbal Las Palmas de Gran Canaria">
+            </div>
+            <div class="carousel-item">
+              <img src="img/index_main_page/Carousel/Views.jpg" alt="Vista al mar y paseo de ensueño">
+            </div>
+          </div>
+
+          <!-- Carousel's left and right controls -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#Rest">Restaurantes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#SanCris">San cristóbal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#Vistas">Vistas</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane container fade" id="Rest">
+            <br />
+            <h3>Restaurantes de San cristóbal</h3>
+            <p>En San Cristóbal existen restaurantes de buena calidad, tales como:</p>
+            <br />
+            <p>Restaurante Los Botes (calificación 3,5 de 5).</p>
+            <p>El Chacalote (calificación 3,5 de 5).</p>
+            <p>La nueva salema (calificación 4 de 5).</p>
+            <br />
+            <p>Para más información, pulse aquí: <a href="sc_restaurantes.html">Restaurantes turísticos San
+                Cristóbal</a></p>
+          </div>
+          <div class="tab-pane container active" id="SanCris">
+            <br />
+            <h3>San cristóbal</h3>
+            <br />
+            <p>San cristóbal es un barrio extendido, con vistas expléndidas hacia el mar y viviendas de
+              color que hace pensar a quien lo visite que se encuentra en un lugar con "esencia viviente".
+            </p>
+            <br />
+            <p>Para más información, pulse aquí: <a href="sc_san_cristobal.html">Conoce
+                San Cristóbal</a></p>
+          </div>
+          <div class="tab-pane container fade" id="Vistas">
+            <br />
+            <h4>Vistas asombrosas y relajantes de San Cristóbal</h4>
+            <br />
+            <p>Las vistas de este lugar pueden parecer simples en un principio, pero si te olvidas de tus
+              pensamientos, oyes a las gaviotas graznear y observas las olas el mar moverse junto al
+              asombroso cielo azul o en e, ¡Podrás sentir una calma interior indescriptiblemente increíble!</p>
+            <br />
+            <p>Para ver algunas imágenes de las increíbles vistas, por favor, presione aquí: <a
+                href="sc_vistas.html">Vistas asombrosas de San Cristóbal</a></p>
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a type="application/rss+xml" href="proyect_rss's/RSS_Elmundo.rss">
+  
+      <img src="img/index_main_page/elmundo_icon.jpg" alt="Icono de noticias ElMundo">
+  
+    </a>
+
+  </div>
+
+
+  <!-- The webpage's footer with important information -->
+  <br />
+  <br />
+
+  <div class="footerer">
+    <br />
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Vía de contacto:</h3>
+      <p>Para contactar con nosotros, por favor, envíe un correo a <a
+          href="https://accounts.google.com">briangarciagomez@alumno.ieselrincon.es</a></p>
+      <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Agradecimiento</h3>
+      <p>Proyecto hecho posible gracias a los centros de educación secundaria IES El Rincón y CIFP San Cristóbal y a su
+        proyecto colaborativo;
+      <p>
+        <a href="http://www3.gobiernodecanarias.org/medusa/edublog/ieselrincon/nuestro-centro">Página web del centro IES
+          El Rincón</a>
+        <br />
+        <a href="https://cifpsancristobal.org/">Página web del centro CIFP San Cristóbal</a>
+        <br />
+        <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerend">
+      <br />
+      <p><a href="index.html">Documento legal sobre nuestras políticas de privacidad del usuario visitante de esta
+          página</a></p>
+      <br />
+    </div>
+  </div>
+
+</body>
+
+</html>

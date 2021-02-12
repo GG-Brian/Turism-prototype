@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<rss version="2.0">
+
+	<channel>
+
+	<title>Noticias de la isla de Gran Canaria</title>
+
+	<link>https://tourism-rocky-ground-lpgc.web.app/</link>
+
+	<description>Aquí brindamos a los usuarios noticias actuales relevantes del lugar</description>
+
+
+	<item>
+		<title>Noticia actual proveniente de www.elmundo.es</title>
+
+		<link>https://www.elmundo.es</link>
+
+		<description>La novedad más actual de las noticias de elmundo</description>
+
+	</item>
+
+	</channel>
+
+</rss>

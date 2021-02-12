@@ -1,0 +1,52 @@
+/* This will position the tag with "button-container-upper-left" id class as a box button positioned on
+the upper left side of the screen, as a box with size properties and centering it's content inside*/
+#button-container-upper-left{
+    position: fixed;
+    top: 2em;
+    left: 2em;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    z-index: 1;
+}
+
+/* All tags with "border-in" class will have a black (default) border radius of 5 pixels*/
+.border-in {
+    border-radius: 5px;
+}
+
+/* All tags with "ambience-image" class will have it's content's width of 100% and
+automatic height (both will take the entire size of the button-container box)*/
+
+#ambience-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-centering {
+    width: 100%;
+    height: auto;
+}
+
+
+/* This will position the tag with "button-container-upper-right" id class as a box button positioned on
+the upper rigth side of the screen, as a box with size properties and centering it's content inside*/
+#button-container-upper-right{
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    z-index: 1;
+}
+
+#button-container-lower-left{
+    position: fixed;
+    bottom: 0.5em;
+    left: 2em;
+    width: 5em;
+    height: 3em;
+    text-align: center;
+    z-index: 1;
+}

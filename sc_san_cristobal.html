@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turismo - San cristóbal</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--
+    The following firebase script line may not work if you have Tracking Prevention active in the
+    Privacy setting of your web browser (so the firebase data won't be sent, I don't know what
+    really causes that to happen, though)
+  -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+  <!-- 
+  These two lines down here are needed, so the line 180 in form_validation_control.js
+  doesn't throw the error "database.firebase() is not a function".
+  -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBeGHsZDDJZgWuh61AqMFJTe7Tg0JY9_lU",
+      authDomain: "tourism-rocky-ground-lpgc.firebaseapp.com",
+      databaseURL: "https://tourism-rocky-ground-lpgc-default-rtdb.firebaseio.com",
+      projectId: "tourism-rocky-ground-lpgc",
+      storageBucket: "tourism-rocky-ground-lpgc.appspot.com",
+      messagingSenderId: "475628830348",
+      appId: "1:475628830348:web:ad7fb22a6c0e17971085a9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+  <!-- Personal JavaScript file for form validation -->
+  <script src="js/form_validation_control.js"></script>
+
+  <!-- Personal CSS file for image effects -->
+  <link rel="stylesheet" href="css/img_effects.css">
+
+  <!-- Personal CSS file for the webpage's footer -->
+  <link rel="stylesheet" href="css/footer.css" />
+
+  <!-- Personal CSS file for form error stylizing -->
+  <link rel="stylesheet" href="css/stylizing_form_error_messages.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <div class="navbar-brand">
+      <img class="mx-auto rounded img-fluid" src="img/SanCrisLogo.jpg" alt="Logo">
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Características generales y otros
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="sc_restaurantes.html">Restaurantes</a>
+        <a class="dropdown-item" href="sc_tour.html">Tour San Cristóbal</a>
+        <a class="dropdown-item" href="sc_vistas.html">Vistas</a>
+        <a class="dropdown-item" href="index.html">Volver atrás</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron (the webpage's introduction, with the gray background) -->
+  <div>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1>San Cristóbal - Un lugar fantástico</h1>
+        <br />
+        <p>Explicación del lugar, sus características y las historias que han hecho de este lugar lo maravilloso que
+          es actualmente.</p>
+      </div>
+    </div>
+
+    <!-- Centeder title before paragraphs -->
+    <div class="container">
+      <h2>Barrio marinero de San Cristóbal</h2>
+      <br />
+      <br />
+    </div>
+
+    <!-- First paragraph with it's image -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="img/San_Cristobal/Look.jpg" alt="San Cristóbal" class="img-fluid">
+        </div>
+        <div class="col-sm-8">
+          <p>Si a un vecino de Las Palmas de Gran Canaria lo llevan con los ojos cerrados al barrio marinero de
+            San Cristóbal, al poco adivinará dónde está.</p>
+          <br />
+          <p>El olor a pescadito fresco, que se mezcla con el sonido hueco de los callaos al chocar unos con otros
+            arrastrados por la marea, es un gran aspecto característico y relajante de este lugar de ensueño.
+          </p>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <!-- Second paragraph with it's image -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <br />
+          <br />
+          <p>Aunque da igual si el visitante es un viajero o lugareño. Este pequeño rincón puede dejar un recuerdo
+            especial, a pesar de las pegas que pone la costumbre, que impide apreciar percepciones que nos hacen
+            saborear lo auténtico. Pero si lleva sus 5 sentidos alerta, reparará seguro en La Fortaleza de San
+            Pedro, en la orilla del mar.</p>
+          <br />
+          <p>Sobre una formación rocosa que hace de base natural. La fortaleza adorna la costa, el horizonte o
+            ambos a la vez, dependiendo desde dónde se observe.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <br />
+          <br />
+          <img src="img/San_Cristobal/Rocky_Little_Tower.jpg" alt="La fortaleza de San Pedro" class="img-fluid">
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <!-- Third paragraph -->
+    <div class="container">
+      <br />
+      <br />
+      <p>Los marineros que aún quedan en San Cristóbal son los que mejor conocen esta costa, recurren a imágenes
+        antiguas para referirse al lugar. Con ellos, por lo general, es fácil entablar una conversación. Te
+        recuerdan cómo se lanzaba el Chinchorro, el arte de pesca de arrastre tradicional que quedó prohibida.
+        También hablan del 'Alga de millo', que los científicos llaman Sargassum vulgare, que abundaba en esta costa
+        y en la zona de Las Canteras. Que cuentan que se comía. Al igual que el cangrejo blanco y los mejillones que
+        se cogían en las rocas que hoy están casi despobladas, con los que se cocinaba una paella que dicen no han
+        vuelto a probar tan sabrosa.</p>
+      <br />
+      <br />
+    </div>
+
+    <!-- Fourth paragraph with it's image -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="img/San_Cristobal/Seafaring_district.jpg" alt="Barrio marinero y viviendas" class="img-fluid">
+          <br />
+          <br />
+        </div>
+        <div class="col-sm-8">
+          <p>El barrio marinero está conformado por un núcleo de casas más o menos uniformes, a pocos metros del
+            mar. Una avenida con su paseo, un puerto que data de 1980 y gente amable. Eso es el barrio de San
+            Cristóbal, que ya cuenta con más de 150 años. Se respira tranquilidad. Se siente la brisa marina. Y
+            se puede probar una buena cena entre los varios restaurantes de un barrio tan particular..</p>
+          <br />
+          <p>Luego están los vecinos, que te cuentan cómo las gaviotas formaban una nube sobre las embarcaciones
+            que llegaban limpiando el pescado, avisando que la faena había sido buena. Por el tamaño de la nube
+            de gaviotas calculaban la buena suerte que traía la embarcación..
+          </p>
+          <br />
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <!-- Fifth paragrap with it's image -->
+    <div class="container">
+      <p>El cuadro hoy es diferente, y aunque el lugar sigue siendo una maravilla, los marineros aseguran que dejó
+        de ser el veril que fue para las especies marinas y para sus habitantes. Bajar descalzos a coger lapas o
+        burgaos no es comparable a pescar en alta mar, la práctica común en la actualidad.</p>
+      <br />
+      <br />
+    </div>
+
+    <!-- sixth paragrap with it's image -->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <p>Sin embargo, hoy los pescadores del barrio continúan abasteciendo a las mejores pescaderías de la
+            isla. Y siguen allí como siempre las modestas y coloridas embarcaciones de pesca tradicionales, que
+            continúan dando vida a un lugar que siempre fue un enclave estratégico en la ciudad. Hace muchos
+            años lo era desde el punto de vista defensivo. Como muestra queda la Torre de San Pedro, declarada
+            monumento histórico artístico en 1922, conocida popularmente como Castillo de San Cristóbal.</p>
+          <br />
+          <p>San Cristóbal siguió siendo más tarde un punto referente en la capital, ya por la pesca. Y hoy,
+            también destaca, por su aspecto pintoresco, tradicional y sencillo.
+          </p>
+          <br />
+          <br />
+        </div>
+        <div class="col-sm-4">
+          <img src="img/San_Cristobal/Fishing_Work.jpg" alt="Negocio de la pesca" class="img-fluid">
+          <br />
+          <br />
+          <br />
+          <br />
+        </div>
+      </div>
+
+      <!-- seventh paragraph -->
+      <div class="container">
+        <p>El barrio conserva el sabor de antaño. Su imagen acogedora. La de un punto de la costa de las Palmas de Gran
+          Canaria, algo de espaldas a la ciudad, que sin querer invita al visitante a adentrarse en su universo
+          personal. Un lugar sin fronteras para parar un rato, para respirar, para disfrutar del simple amanecer..</p>
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+
+    <!-- Las Palmas de Gran Canaria's landscape image -->
+    <div class="container">
+      <img class="img-fluid rounded mx-auto zoom-effect" src="img/San_Cristobal/Las_Palmas_GC_Landscape.jpg"
+        alt="Paisaje Las Palmas GC">
+      <br />
+      <br />
+    </div>
+  </div>
+
+
+  <!-- Form introduction -->
+  <div class="container">
+    <br />
+    <br />
+    <br />
+    <br />
+    <h5>Como nuevo servicio, ofrecemos novedades sobre este lugar a quienes les interese, lo único que hay que hacer
+      es rellenar los datos inferiores y ya te tendremos registrado para enviarle noticias sobre San Cristóbal -
+      Las Palmas de Gran Canaria:</h5>
+    <br />
+    <br />
+
+    <!-- Form elements -->
+    <form id="news">
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <label for="email">Las novedades sobre San Cristóbal se enviarán a:
+            <input type="text" class="form-control" id="email" name="news-form-email"
+              placeholder="Un correo electronico.">
+
+            <span id="email-at-sign-issue">* Error: Un email siempre debe tener un "@".</span>
+            <span id="email-spacing-not-approved">* Error: Los email nunca llevan espacios.</span>
+            <span id="email-length-not-approved">* Error: Longitud de email no realista.</span>
+            <span id="no-email">* Error: Campo de correo electrónico vacío</span>
+
+          </label>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="option-selector">El o los tipos de correos que se enviarán al correo:
+            <select class="form-control" id="option-selector">
+              <option value="0">Elige una opción válida</option>
+              <option value="1">1 - Correos relacionados a la política</option>
+              <option value="2">2 - Correos relacionados al mundo comercial</option>
+              <option value="3">3 - Correos triviales</option>
+              <option value="4">4 - La primera opción</option>
+              <option value="5">5 - La segunda opción</option>
+              <option value="6">6 - La tercera opción</option>
+              <option value="7">7 - La primera y segunda opción</option>
+              <option value="8">8 - La primera y tercera opción</option>
+              <option value="8">9 - La segunda y tercera opción</option>
+              <option value="10">10 - Las tres opciones</option>
+            </select>
+            <span id="no-option-chosen">* Error: Campo de tipo de correo no válido</span>
+          </label>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="client-name">Los correos irán dirigidos a la siguiente persona:
+            <input type="text" class="form-control" id="client-name" name="clients-full-name"
+              placeholder="Un nombre completo">
+            <span id="name-delimiter-missing">* Error: Un nombre contiene al menos 2 palabras</span>
+            <span id="no-full-name">* Error: Campo de nombre completo vacío</span>
+          </label>
+        </div>
+        <div class="col-sm-6">
+          <label for="client-age">Existen correos solo relevantes para ciertas edades:
+            <input type="text" class="form-control" id="client-age" name="clients-age"
+              placeholder="Una edad (con dígitos)">
+            <span id="too-large-client-age">* Error: Valor de edad inhumanamente alto</span>
+            <span id="spacing-client-age">* Error: Se pide solo un valor de edad, elimine espacios</span>
+            <span id="just-numbers-client-age">* Error: Caracteres no numéricos detectados</span>
+            <span id="no-decimals-client-age">* Error: Se pide un número entero, sin decimales</span>
+            <span id="no-baby-clients">* Error: Demasiado joven para siquiera recibir email</span>
+            <span id="no-client-age">* Error: Campo de edad vacío</span>
+
+          </label>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+          <label for="upDNIfile">Imagen con su DNI, se usará para comprobar que es una persona real (no un bot):
+            <br />
+            <input type="file" name="news-img-uploader" id="upDNIfile" hidden>
+            <img id="unverified-img-file" class="mx-auto d-block" src="img/San_Cristobal/News_Form_Icons/Upload_dni_icon2.png" alt="botón imagen DNI">
+          </label>
+          <img id="verified-img-file" class="mx-auto" hidden src="img/San_Cristobal/News_Form_Icons/Uploaded_dni_icon2.png" alt="verificada imagen DNI">
+          <br />
+          <span id="no-file">* Error: No se ha seleccionado ningún archivo</span>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <br />
+      <br />
+      <h6>¿Desea recibir correo de anuncios generales tales como ocio o ofertas? Apreciaríamos mucho que permita
+        esto para contribuir económicamente a nuestro
+        desarrollo como empresa y ayudarnos a ayudar al medioambiente y ONG's:</h6>
+      <br />
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class=col-lg-6>
+          <div class="form-check">
+            <label class="form-check-label container">
+              <input type="radio" class="form-check-input" name="optradio" id="RadioButton1">Si, me gustaría ayudaros
+              recibiendo vuestros anuncios.
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label container">
+              <input type="radio" class="form-check-input" name="optradio" id="RadioButton2">No, gracias, preferiría no
+              recibir vuestros anuncios.
+            </label>
+          </div>
+          <span id="no-check-selected" class="container">* Error: No se ha seleccionado ninguna de las dos
+            opciones.</span>
+          <div id="resulting">
+            <!-- Invisible, value in "value" will be sent to firebase database according to selected radiobutton -->
+            <label for="ads-result">
+              <input type="text" class="form-control" id="ads-result" value="" name="ads-result">
+            </label>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <br />
+
+      <div>
+        <h6>Cuando termine, pulse abajo (podrá consultar, modificar y/o borrarlos si se
+          arrepiente): </h6>
+        <button type="submit" class="btn btn-primary btn-block">Enviar datos</button>
+        <span id="news-form-uncompleted" class="container">* Error: No se pudo enviar los datos; No todos los campos han
+          sido rellenados</span>
+      </div>
+    </form>
+
+    <div class="table-responsive">
+      <br />
+      <br />
+      <table class="table">
+        <thead id="thead-news-form-table">
+          <tr>
+            <th class="thead-colors">Nombre</th>
+            <th class="thead-colors">Correo</th>
+            <th class="thead-colors">Tipo</th>
+            <th class="thead-colors">Edad</th>
+            <th class="thead-colors">Anuncios</th>
+            <th class="thead-colors">Editar / Borrar</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-news-form-table">
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+  <!-- The webpage's footer with important information -->
+  <br />
+  <br />
+
+  <div class="footerer">
+    <br />
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Vía de contacto:</h3>
+      <p>Para contactar con nosotros, por favor, envíe un correo a <a
+          href="https://accounts.google.com">briangarciagomez@alumno.ieselrincon.es</a></p>
+      <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerblock">
+      <br />
+      <h3>Agradecimiento</h3>
+      <p>Proyecto hecho posible gracias a los centros de educación secundaria IES El Rincón y CIFP San Cristóbal y a su
+        proyecto colaborativo;
+      <p>
+        <a href="http://www3.gobiernodecanarias.org/medusa/edublog/ieselrincon/nuestro-centro">Página web del centro IES
+          El Rincón</a>
+        <br />
+        <a href="https://cifpsancristobal.org/">Página web del centro CIFP San Cristóbal</a>
+        <br />
+        <br />
+    </div>
+
+    <br />
+
+    <div class="container footer-text footerend">
+      <br />
+      <p><a href="sc_vistas.html">Documento legal sobre nuestras políticas de privacidad del usuario visitante de esta
+          página</a></p>
+      <br />
+    </div>
+  </div>
+</body>
