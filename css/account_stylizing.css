@@ -1,0 +1,10 @@
+.center-its-content {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  #err-credentials {
+    color: red;
+    display: none;
+  }

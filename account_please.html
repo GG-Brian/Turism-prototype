@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>registración de cuenta</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--
+    The following firebase script line may not work if you have Tracking Prevention active in the
+    Privacy setting of your web browser (so the firebase data won't be sent, I don't know what
+    really causes that to happen, though)
+  -->
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+    <!-- 
+  These two lines down here are needed, so the line 180 in form_validation_control.js
+  doesn't throw the error "database.firebase() is not a function".
+  -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBeGHsZDDJZgWuh61AqMFJTe7Tg0JY9_lU",
+            authDomain: "tourism-rocky-ground-lpgc.firebaseapp.com",
+            databaseURL: "https://tourism-rocky-ground-lpgc-default-rtdb.firebaseio.com",
+            projectId: "tourism-rocky-ground-lpgc",
+            storageBucket: "tourism-rocky-ground-lpgc.appspot.com",
+            messagingSenderId: "475628830348",
+            appId: "1:475628830348:web:ad7fb22a6c0e17971085a9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <!-- Personal CSS file for stylizing this account registration page -->
+    <link rel="stylesheet" href="css/account_stylizing.css">
+
+    <script src="js/form_account_validation.js"></script>
+
+</head>
+
+<body>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="text-center">Sección del registro de cuentas</h1>
+            <br />
+            <p class="text-center">Pedimos que, si usted es un cliente, se registre con la cuenta anónima que hemos
+                diseñado para usted, cuyos datos son los siguientes:</p>
+            <br />
+            <p class="text-center">Usuario: anonymous@user.com</p>
+            <p class="text-center">Contraseña: 123456</p>
+            <br />
+            <h6 class="text-center">Tenga en cuenta que solo podrá añadir sus datos, si quiere que sean editados o
+                borrados, por favor, envíanos un mensaje por correo a briangarciagomez@alumno.ieselrincones, si quiere
+                volver a la página anterior, presione <a href="sc_san_cristobal.html">aquí</a></h6>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4 col-sm-3 col-2"></div>
+        <div class="col-lg-4 col-sm-6 col-8">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form id="registry">
+                                    <div class="container">
+                                        <br />
+                                        <h6>- Usuario -</h6>
+                                        <label for="account-email"></label>
+                                        <input type="email" class="table-responsive" name="this-email"
+                                            id="account-email">
+                                    </div>
+                                    <div class="container">
+                                        <br />
+                                        <br />
+                                        <h6>- Contraseña -</h6>
+                                        <label for="account-password"></label>
+                                        <input type="password" class="table-responsive" name="this-password"
+                                            id="account-password">
+                                    </div>
+                                    <br />
+                                    <br />
+
+                                    <button type="submit" class="btn btn-info">Comprobar credenciales</button>
+                                    <span id="err-credentials">Error: La validación de las credenciales escritas ha
+                                        dado error, por favor, asegurese de haber escrito las credenciales correctas y
+                                        vuelva a intentarlo</span>
+
+                                </form>
+                                <br />
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>

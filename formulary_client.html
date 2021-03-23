@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Encuesta Novedades San Cristóbal</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!--
+    The following firebase script line may not work if you have Tracking Prevention active in the
+    Privacy setting of your web browser (so the firebase data won't be sent, I don't know what
+    really causes that to happen, though)
+  -->
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+  <!-- 
+  These two lines down here are needed, so the line 180 in form_validation_control.js
+  doesn't throw the error "database.firebase() is not a function".
+  -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBeGHsZDDJZgWuh61AqMFJTe7Tg0JY9_lU",
+      authDomain: "tourism-rocky-ground-lpgc.firebaseapp.com",
+      databaseURL: "https://tourism-rocky-ground-lpgc-default-rtdb.firebaseio.com",
+      projectId: "tourism-rocky-ground-lpgc",
+      storageBucket: "tourism-rocky-ground-lpgc.appspot.com",
+      messagingSenderId: "475628830348",
+      appId: "1:475628830348:web:ad7fb22a6c0e17971085a9"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+
+  <!-- Personal JavaScript file for form validation -->
+  <script src="js/form_news_client_validation.js"></script>
+
+  <!-- Personal CSS file for form error stylizing -->
+  <link rel="stylesheet" href="css/stylizing_form_messages.css">
+
+</head>
+
+<body>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="text-center">Encuesta para recibir novedades de San Cristóbal</h1>
+      <br />
+      <p class="text-center">Rellene la información requerida, compruebe que es correcta y envíenosla para así tenerle
+        en cuenta en nuestra base de datos, porque usted nos importa y queremos que se una a los demás que también
+        desean recibir correos sobre novedades</p>
+      <br />
+      <p class="text-center">Si desea volver a la página anterior a la de la sección del registro de cuentas, por favor,
+        presione <a href="sc_san_cristobal.html">aquí</a></p>
+    </div>
+  </div>
+
+  <br />
+
+  <!-- Form elements -->
+  <form id="news" class="container">
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <label for="email">Las novedades sobre San Cristóbal se enviarán a:
+          <input type="text" class="form-control" id="email" name="news-form-email"
+            placeholder="Un correo electronico.">
+
+          <span id="email-at-sign-issue">* Error: Un email siempre debe tener un "@".</span>
+          <span id="email-spacing-not-approved">* Error: Los email nunca llevan espacios.</span>
+          <span id="email-length-not-approved">* Error: Longitud de email no realista.</span>
+          <span id="no-email">* Error: Campo de correo electrónico vacío</span>
+
+        </label>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="option-selector">El o los tipos de correos que se enviarán al correo:
+          <select class="form-control" id="option-selector">
+            <option value="0">Elige una opción válida</option>
+            <option value="1">1 - Correos relacionados a la política</option>
+            <option value="2">2 - Correos relacionados al mundo comercial</option>
+            <option value="3">3 - Correos triviales</option>
+            <option value="4">4 - La primera opción</option>
+            <option value="5">5 - La segunda opción</option>
+            <option value="6">6 - La tercera opción</option>
+            <option value="7">7 - La primera y segunda opción</option>
+            <option value="8">8 - La primera y tercera opción</option>
+            <option value="8">9 - La segunda y tercera opción</option>
+            <option value="10">10 - Las tres opciones</option>
+          </select>
+          <span id="no-option-chosen">* Error: Campo de tipo de correo no válido</span>
+        </label>
+      </div>
+      <div class="form-group col-sm-6">
+        <label for="client-name">Los correos irán dirigidos a la siguiente persona:
+          <input type="text" class="form-control" id="client-name" name="clients-full-name"
+            placeholder="Un nombre completo">
+          <span id="name-delimiter-missing">* Error: Un nombre contiene al menos 2 palabras</span>
+          <span id="no-full-name">* Error: Campo de nombre completo vacío</span>
+        </label>
+      </div>
+      <div class="col-sm-6">
+        <label for="client-age">Existen correos solo relevantes para ciertas edades:
+          <input type="text" class="form-control" id="client-age" name="clients-age"
+            placeholder="Una edad (con dígitos)">
+          <span id="too-large-client-age">* Error: Valor de edad inhumanamente alto</span>
+          <span id="spacing-client-age">* Error: Se pide solo un valor de edad, elimine espacios</span>
+          <span id="just-numbers-client-age">* Error: Caracteres no numéricos detectados</span>
+          <span id="no-decimals-client-age">* Error: Se pide un número entero, sin decimales</span>
+          <span id="no-baby-clients">* Error: Demasiado joven para siquiera recibir email</span>
+          <span id="no-client-age">* Error: Campo de edad vacío</span>
+        </label>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-7">
+        <label for="up-dni-file">Imagen con su DNI, se usará para comprobar que es una persona real (no un
+          bot):
+          <br />
+          <input type="file" name="news-img-uploader" id="up-dni-file" hidden>
+          <img id="unverified-img-file" class="mx-auto d-block"
+            src="img/San_Cristobal/News_Form_Icons/Upload_dni_icon2.png" alt="botón imagen DNI">
+        </label>
+        <img id="verified-img-file" class="mx-auto" hidden
+          src="img/San_Cristobal/News_Form_Icons/Uploaded_dni_icon2.png" alt="verificada imagen DNI">
+        <br />
+        <span id="no-file">* Error: No se ha seleccionado ningún archivo</span>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <h6>¿Desea recibir correo de anuncios generales tales como ocio o ofertas? Apreciaríamos mucho que permita
+      esto para contribuir económicamente a nuestro
+      desarrollo como empresa y ayudarnos a ayudar al medioambiente y ONG's:</h6>
+    <br />
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class=col-lg-6>
+        <div class="form-check">
+          <label class="form-check-label container">
+            <input type="radio" class="form-check-input" name="optradio" id="RadioButton1">Si, me
+            gustaría ayudaros
+            recibiendo vuestros anuncios.
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label container">
+            <input type="radio" class="form-check-input" name="optradio" id="RadioButton2">No, gracias,
+            preferiría no
+            recibir vuestros anuncios.
+          </label>
+        </div>
+        <span id="no-check-selected" class="container">* Error: No se ha seleccionado ninguna de las dos
+          opciones.</span>
+        <div id="resulting">
+          <!-- Invisible, value in "value" will be sent to firebase database according to selected radiobutton -->
+          <label for="ads-result">
+            <input type="text" class="form-control" id="ads-result" value="" name="ads-result">
+          </label>
+        </div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <div>
+      <h5 class="text-center">Cuando termine, pulse abajo (podrá consultar, modificar y/o borrarlos si se
+        arrepiente): </h5>
+      <button type="submit" class="btn btn-primary btn-block">Enviar datos</button>
+      <span id="news-form-uncompleted" class="container">* Error: No se pudo enviar los datos; No todos los
+        campos han
+        sido rellenados</span>
+    </div>
+
+    <div id="firebase-data-uploading">
+      <br />
+      <br />
+      <p class="text-center">Atesorando su preciada información, por favor, espere un momento..</p>
+      <div class="progress">
+        <div class="progress-bar bg-success" id="uploadings-progression"></div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="table-responsive">
+      <br />
+      <br />
+      <table class="table">
+        <thead id="thead-news-form-table">
+          <tr>
+            <th class="thead-colors">Nombre</th>
+            <th class="thead-colors">DNI</th>
+            <th class="thead-colors">Correo</th>
+            <th class="thead-colors">Tipo</th>
+            <th class="thead-colors">Edad</th>
+            <th class="thead-colors">Anuncios</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-news-form-table">
+        </tbody>
+      </table>
+    </div>
+
+    <br />
+    <br />
+
+  </form>
+
+</body>
