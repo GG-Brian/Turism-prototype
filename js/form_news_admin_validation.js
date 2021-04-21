@@ -118,18 +118,18 @@ function initial() {
     // This will retrieve each data of the actual database row and save it onto "suDNI",
     // thanks to the fact the image is the LAST field in my firebase database row, the
     // image URL of my firebase storage will be saved in there for correct deletion
-    var suDNI
+    var userDNIurl
 
     refNewsFormItemToDelete.on("value", function (snapshot) {
       snapshot.forEach(function (childSnapshot) {
-        suDNI = childSnapshot.val();
+        userDNIurl = childSnapshot.val();
       });
     });
 
     // And finally, I delete the image from my firebase storage by using it's URL that's saved on my firebase
     // database, and then I delete the firebase database row
     refNewsFormStorage = firebase.storage();
-    var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(suDNI);
+    var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(userDNIurl);
     refDNIFirebaseStorageToDelete.delete();
 
     var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
@@ -495,18 +495,18 @@ function newsFormValidationControl(event) {
           // This will retrieve each data of the actual database row and save it onto "suDNI",
           // thanks to the fact the image is the LAST field in my firebase database row, the
           // image URL of my firebase storage will be saved in there for correct deletion
-          var suDNI
+          var userDNIurl
 
           refNewsFormItemToDelete.on("value", function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
-              suDNI = childSnapshot.val();
+              userDNIurl = childSnapshot.val();
             });
           });
 
           // And finally, I delete the image from my firebase storage by using it's full URL that's
           // saved on my firebase database, and then I delete the firebase database row
           refNewsFormStorage = firebase.storage();
-          var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(suDNI);
+          var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(userDNIurl);
           refDNIFirebaseStorageToDelete.delete();
 
           var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
