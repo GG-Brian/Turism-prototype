@@ -108,7 +108,31 @@ function initial() {
   }
 
   function arrayItemDeletion() {
+    // I get the firebase database row number (so I know what row is the one selected to be
+    // deleted), then I select the row the previous number means, and then I make a reference
+    // to my firebase storage, so I can also delete the saved image along with the row that ALSO
+    // contains the URL of the image
     var arrayItemDeletionSelector = this.getAttribute("data-newformitem");
+    var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
+
+    // This will retrieve each data of the actual database row and save it onto "suDNI",
+    // thanks to the fact the image is the LAST field in my firebase database row, the
+    // image URL of my firebase storage will be saved in there for correct deletion
+    var suDNI
+
+    refNewsFormItemToDelete.on("value", function (snapshot) {
+      snapshot.forEach(function (childSnapshot) {
+        suDNI = childSnapshot.val();
+        console.log(suDNI);
+      });
+    });
+
+    // And finally, I delete the image from my firebase storage by using it's URL that's saved on my firebase
+    // database, and then I delete the firebase database row
+    refNewsFormStorage = firebase.storage();
+    var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(suDNI);
+    refDNIFirebaseStorageToDelete.delete();
+
     var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
     refNewsFormItemToDelete.remove();
   }
@@ -462,7 +486,31 @@ function newsFormValidationControl(event) {
         }
 
         function arrayItemDeletion() {
+          // I get the firebase database row number (so I know what row is the one selected to be
+          // deleted), then I select the row the previous number means, and then I make a reference
+          // to my firebase storage, so I can also delete the saved image along with the row that ALSO
+          // contains the URL of the image
           var arrayItemDeletionSelector = this.getAttribute("data-newformitem");
+          var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
+
+          // This will retrieve each data of the actual database row and save it onto "suDNI",
+          // thanks to the fact the image is the LAST field in my firebase database row, the
+          // image URL of my firebase storage will be saved in there for correct deletion
+          var suDNI
+
+          refNewsFormItemToDelete.on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+              suDNI = childSnapshot.val();
+              console.log(suDNI);
+            });
+          });
+
+          // And finally, I delete the image from my firebase storage by using it's full URL that's
+          // saved on my firebase database, and then I delete the firebase database row
+          refNewsFormStorage = firebase.storage();
+          var refDNIFirebaseStorageToDelete = refNewsFormStorage.refFromURL(suDNI);
+          refDNIFirebaseStorageToDelete.delete();
+
           var refNewsFormItemToDelete = refNewsFormDatabase.child(arrayItemDeletionSelector);
           refNewsFormItemToDelete.remove();
         }

@@ -295,17 +295,71 @@ function newsFormValidationControl(event) {
           Anuncios: event.target["ads-result"].getAttribute("value")
         });
 
+        // Here I recollect all data in my firebase storage upon entering the webpage and whenever there's a change
+        // on the firebase database data (C letter un CRUD (Consult))
         theadNewsFormTable = document.getElementById("tbody-news-form-table");
+        refNewsFormDatabase = firebase.database().ref().child("NewsClients");
 
-        formNewsValidator.reset();
+        var colorChanger = 1;
+        refNewsFormDatabase.on("value", function (snap) {
+          var databaseNewsDataArray = snap.val();
+          var showedNewsClientData = "";
+          for (var actualArrayItem in databaseNewsDataArray) {
+            colorChanger++;
+            if (colorChanger % 2 == 0) {
+              showedNewsClientData += '<tr class="softer-blue">' +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Nombre + "</td>" +
+                "<td><a href='" + databaseNewsDataArray[actualArrayItem].dni + "'>Ver DNI</a></td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Correo + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Tipo + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Edad + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Anuncios + "</td>" +
+
+                "<td>" +
+                '<button class="btn Edition" data-newformitem="' + actualArrayItem + '">' +
+                '<img src="img/San_Cristobal/News_Form_Icons/Memo_icon.svg.png">' +
+                "</button>" +
+
+                '<button class="btn btn-danger Deletion" data-newformitem="' + actualArrayItem + '">' +
+                '<img src="img/San_Cristobal/News_Form_Icons/Trashy-icon.png">' +
+                "</button>" +
+                "</td>" +
+
+                "</tr>";
+            } else {
+              showedNewsClientData += '<tr class="darker-blue">' +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Nombre + "</td>" +
+                "<td><div><a href='" + databaseNewsDataArray[actualArrayItem].dni + "'>Ver DNI</a></div</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Correo + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Tipo + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Edad + "</td>" +
+                "<td>" + databaseNewsDataArray[actualArrayItem].Anuncios + "</td>" +
+
+                "<td>" +
+                '<button class="btn Edition" data-newformitem="' + actualArrayItem + '">' +
+                '<img src="img/San_Cristobal/News_Form_Icons/Memo_icon.svg.png">' +
+                "</button>" +
+
+                '<button class="btn btn-danger Deletion" data-newformitem="' + actualArrayItem + '">' +
+                '<img src="img/San_Cristobal/News_Form_Icons/Trashy-icon.png">' +
+                "</button>" +
+                "</td>" +
+
+                "</tr>";
+            }
+        }});
+
+          theadNewsFormTable.innerHTML = showedNewsClientData;
+
+          formNewsValidator.reset();
+        }
+
+    } else {
+        document.getElementById("no-file").style.display = "block";
       }
 
     } else {
-      document.getElementById("no-file").style.display = "block";
+      document.getElementById("news-form-uncompleted").style.display = "block";
     }
 
-  } else {
-    document.getElementById("news-form-uncompleted").style.display = "block";
   }
-
-}
