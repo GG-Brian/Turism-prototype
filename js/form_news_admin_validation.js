@@ -123,7 +123,6 @@ function initial() {
     refNewsFormItemToDelete.on("value", function (snapshot) {
       snapshot.forEach(function (childSnapshot) {
         suDNI = childSnapshot.val();
-        console.log(suDNI);
       });
     });
 
@@ -501,7 +500,6 @@ function newsFormValidationControl(event) {
           refNewsFormItemToDelete.on("value", function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
               suDNI = childSnapshot.val();
-              console.log(suDNI);
             });
           });
 
